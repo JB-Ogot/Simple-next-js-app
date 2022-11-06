@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { Button } from "../components";
 
-export default function Home() {
+export default function Home({ categories }: any) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,10 +13,23 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1>Home Page</h1>
 
       <main className={styles.main}>
-        <h1>INitial Commit</h1>
+        {categories.map((category: string) => (
+          <Button key={category} label={category} />
+        ))}
       </main>
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const res = await fetch("https://api.chucknorris.io/jokes/categories");
+  const categories = await res.json();
+  return {
+    props: {
+      categories,
+    },
+  };
+};
