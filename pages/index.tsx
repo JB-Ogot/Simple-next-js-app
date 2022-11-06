@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { Button } from "../components";
 
@@ -16,8 +17,17 @@ export default function Home({ categories }: any) {
       <h1>Home Page</h1>
 
       <main className={styles.main}>
+        <Link href={"/jokes"}>
+          <Button label="Generate Random Joke" />
+        </Link>
         {categories.map((category: string) => (
-          <Button key={category} label={category} />
+          <Link
+            href={"/jokes/[category]"}
+            as={`/jokes/${category}`}
+            key={category}
+          >
+            <Button label={category} />
+          </Link>
         ))}
       </main>
     </div>
