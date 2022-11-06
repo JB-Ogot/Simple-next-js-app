@@ -33,7 +33,7 @@ export default function Joke({ joke }: any) {
           )}
           <Button label="Load New Joke" handleClick={() => generateNewJoke()} />
           <Link href="/">
-            <Button label="Return to Home" />
+            <Button label="Back to Home Page" />
           </Link>
         </div>
       </main>
