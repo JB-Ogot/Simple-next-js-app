@@ -5,6 +5,7 @@ import { Button } from "../../../components";
 import styles from "../../../styles/Home.module.css";
 
 export default function Category({ joke, statusCode }: any) {
+  const categoryName = `${joke.categories[0]} Joke`;
   if (statusCode === 404) {
     return <Error statusCode={statusCode} />;
   }
@@ -18,7 +19,7 @@ export default function Category({ joke, statusCode }: any) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>{joke.categories[0]} Joke</h1>
+      <h1 className={styles.h1}>{categoryName}</h1>
       <main className={styles.main}>
         <p className={styles.p}>{joke.value}</p>
         <Link href="/">
