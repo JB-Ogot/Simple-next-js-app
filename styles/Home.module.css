@@ -108,6 +108,23 @@
   margin-left: 0.5rem;
 }
 
+.button {
+  background-color: #40e6e6;
+  margin: 1rem;
+  color: white;
+  padding: 1.5rem;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  min-width: 100px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #02b8b8;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
